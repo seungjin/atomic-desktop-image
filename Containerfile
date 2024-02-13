@@ -8,6 +8,7 @@ RUN rpm-ostree install \
 
 RUN mkdir -p /var/lib && ln -s /usr/lib/alternatives /var/lib/alternatives
 
+COPY root/etc/yum.repos.d/* /etc/yum.repos.d/
 COPY pkgs /tmp/pkgs
 RUN rpm-ostree install $(cat /tmp/pkgs/base)
 RUN rpm-ostree install $(cat /tmp/pkgs/virt)
@@ -31,11 +32,12 @@ RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-os
 #RUN systemctl enable firewalld 
 #RUN firewall-cmd --permanent --zone=public --add-port=432/tcp
 
-COPY usr /usr
-RUN mkdir /usr/lib/vagrant
+
 
 #RUN mv /usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml.original
 #COPY usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml 
+
+COPY root/var/lib/extensions /var/lib/
 
 RUN rm -fr /var/lib
 

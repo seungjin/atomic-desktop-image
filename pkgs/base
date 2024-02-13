@@ -5,7 +5,6 @@ blueman
 brightnessctl
 buildah
 cmake
-containerd.io
 distrobox
 dmenu
 dunst
