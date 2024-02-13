@@ -39,7 +39,7 @@ RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-os
 
 COPY root/var/lib/extensions /var/lib/
 
-RUN rm -fr /var/
+RUN rm -fr /var/log/
 
 RUN rpm-ostree cleanup -m && ostree container commit
 
