@@ -1,6 +1,8 @@
-Seungjin's Fedora Silverblue Image
+Seungjin's Atomic Desktop Image
 
-For Personal USE. 
+```
+sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/seungjin/atomic-desktop-image:latest
+```
 
 See LICENSE file for LICENSING. 
 
