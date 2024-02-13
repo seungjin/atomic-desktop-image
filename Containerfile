@@ -32,14 +32,10 @@ RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-os
 #RUN systemctl enable firewalld 
 #RUN firewall-cmd --permanent --zone=public --add-port=432/tcp
 
-
-
 #RUN mv /usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml.original
 #COPY usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml 
 
-COPY root/var/lib/extensions /var/lib/
-
-RUN rm -fr /var/log/
+RUN rm -fr /var/
 
 RUN rpm-ostree cleanup -m && ostree container commit
 
