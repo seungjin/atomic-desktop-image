@@ -8,7 +8,8 @@ RUN rpm-ostree install \
 
 RUN mkdir -p /var/lib && ln -s /usr/lib/alternatives /var/lib/alternatives
 
-COPY root/etc/yum.repos.d/* /etc/yum.repos.d/
+COPY root/* /
+
 COPY pkgs /tmp/pkgs
 RUN rpm-ostree install $(cat /tmp/pkgs/base)
 RUN rpm-ostree install $(cat /tmp/pkgs/virt)
@@ -35,7 +36,7 @@ RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-os
 #RUN mv /usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml.original
 #COPY usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml 
 
-RUN rm -fr /var/
+RUN rm -fr /var/log
 
 RUN rpm-ostree cleanup -m && ostree container commit
 
