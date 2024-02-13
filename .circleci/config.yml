@@ -1,9 +1,5 @@
 version: 2.1
 
-parameters:
-  image-tag:
-    type: string
-    default: ${git rev-parse --short HEAD}
 jobs:
   build:
     machine:
