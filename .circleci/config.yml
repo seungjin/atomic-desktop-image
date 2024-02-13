@@ -18,13 +18,13 @@ jobs:
           echo "$GITHUB_ACCESS_KEY" | docker login -u seungjin --password-stdin ghcr.io
       - run: |
           docker build -f Containerfile \
-          -t ghcr.io/seungjin/atomic-desktop-image:<<pipeline.parameters.image-tag>> .
+          -t ghcr.io/seungjin/atomic-desktop-image:${git rev-parse --short HEAD} .
       - run: |
-          docker push ghcr.io/seungjin/atomic-desktop-image:<<pipeline.parameters.image-tag>>
+          docker push ghcr.io/seungjin/atomic-desktop-image:${git rev-parse --short HEAD}
       - run: |
           docker buildx imagetools create \
           -t ghcr.io/seungjin/atomic-desktop-image:latest \
-          ghcr.io/seungjin/atomic-desktop-image:<<pipeline.parameters.image-tag>>
+          ghcr.io/seungjin/atomic-desktop-image:${git rev-parse --short HEAD}
 
 workflows:
   commit:
