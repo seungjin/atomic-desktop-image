@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   short_git_revision:
     type: string
-    default: "${CIRCLE_SHA1:0:7}"
+    default: ${CIRCLE_SHA1:0:7}
 
 jobs:
   build:
@@ -21,13 +21,13 @@ jobs:
           echo "$GITHUB_ACCESS_KEY" | docker login -u seungjin --password-stdin ghcr.io
       - run: |
           docker build -f Containerfile \
-          -t ghcr.io/seungjin/atomic-desktop-image:"${image-tag}" .
+          -t ghcr.io/seungjin/atomic-desktop-image:${image-tag} .
       - run: |
-          docker push ghcr.io/seungjin/atomic-desktop-image:"${image-tag}"
+          docker push ghcr.io/seungjin/atomic-desktop-image:${image-tag}
       - run: |
           docker buildx imagetools create \
           -t ghcr.io/seungjin/atomic-desktop-image:latest \
-          ghcr.io/seungjin/atomic-desktop-image:"${image-tag}"
+          ghcr.io/seungjin/atomic-desktop-image:${image-tag}
 
 workflows:
   commit:
