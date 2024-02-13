@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   image-tag:
     type: string
-    default: "<<pipeline.git.revision>>"
+    default: ${CIRCLE_SHA1:0:7}
 
 jobs:
   build:
