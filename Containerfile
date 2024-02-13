@@ -36,7 +36,8 @@ RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-os
 #RUN mv /usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml.original
 #COPY usr/share/ibus/component/hangul.xml /usr/share/ibus/component/hangul.xml 
 
-RUN rm -fr /var/log
+
+RUN rm -fr /var/log /var/lib
 
 RUN rpm-ostree cleanup -m && ostree container commit
 
