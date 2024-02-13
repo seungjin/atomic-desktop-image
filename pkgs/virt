@@ -1,10 +1,15 @@
 guestfs-tools 
+libtool
+libvirt-daemon-config-network
+libvirt-daemon-kvm
+libvterm
 libguestfs-tools 
 libvirt 
-python3-libguestfs 
+python3-libguestfs
+qemu-kvm
 qemu-kvm-core 
 virt-install
 virt-manager
 virt-top
 virt-viewer 
-vnstat 
+
