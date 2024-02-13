@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   image-tag:
     type: string
-    default: ${git rev-parse HEAD --short main}
+    default: ${git rev-parse --short HEAD}
 jobs:
   build:
     machine:
