@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   image-tag:
     type: string
-    default: "ci-<<pipeline.number>>"
+    default: "<<pipeline.git.revision>>"
 
 jobs:
   build:
