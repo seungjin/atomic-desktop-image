@@ -8,7 +8,7 @@ RUN rpm-ostree install \
 
 RUN mkdir -p /var/lib && ln -s /usr/lib/alternatives /var/lib/alternatives
 
-COPY root/* /
+COPY root/. /
 
 COPY pkgs /tmp/pkgs
 RUN rpm-ostree install $(cat /tmp/pkgs/base)
