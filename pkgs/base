@@ -3,7 +3,6 @@ arandr
 bind-utils
 blueman
 brightnessctl
-buildah
 cmake
 distrobox
 dmenu
@@ -15,7 +14,6 @@ i3lock
 ibus-panel
 iotop
 langpacks-en
-libguestfs-tools
 libssh-devel
 lm_sensors-devel
 lm_sensors-libs
